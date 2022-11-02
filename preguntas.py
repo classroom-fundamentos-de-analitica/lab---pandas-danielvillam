@@ -22,7 +22,7 @@ def pregunta_01():
     40
 
     """
-    return tbl0.shape.index(0)
+    return tbl0.shape[0]
 
 
 def pregunta_02():
@@ -33,7 +33,7 @@ def pregunta_02():
     4
 
     """
-    return tbl0.shape.index(1)
+    return tbl0.shape[1]
 
 
 def pregunta_03():
@@ -50,7 +50,12 @@ def pregunta_03():
     Name: _c1, dtype: int64
 
     """
-    return
+    contador = {}
+    for key in tbl0._c1:
+        contador[key] = contador.get(key, 0) + 1 
+
+    contador_sort = sorted(contador.items())
+    return dict(contador_sort)
 
 
 def pregunta_04():
@@ -218,3 +223,4 @@ def pregunta_13():
     Name: _c5b, dtype: int64
     """
     return
+

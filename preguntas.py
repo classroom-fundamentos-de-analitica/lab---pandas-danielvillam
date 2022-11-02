@@ -50,12 +50,7 @@ def pregunta_03():
     Name: _c1, dtype: int64
 
     """
-    contador = {}
-    for key in tbl0._c1:
-        contador[key] = contador.get(key, 0) + 1 
-
-    contador_sort = sorted(contador.items())
-    return dict(contador_sort)
+    return pd.value_counts(tbl0._c1).sort_index
 
 
 def pregunta_04():

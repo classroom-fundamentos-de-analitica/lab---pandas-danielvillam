@@ -50,7 +50,7 @@ def pregunta_03():
     Name: _c1, dtype: int64
 
     """
-    return pd.value_counts(tbl0._c1).sort_index
+    return pd.value_counts(tbl0._c1).sort_index()
 
 
 def pregunta_04():

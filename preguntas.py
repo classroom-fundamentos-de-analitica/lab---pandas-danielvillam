@@ -214,8 +214,8 @@ def pregunta_11():
     df["_c4"] = [str(line).replace("]", "") for line in df["_c4"]]
     df["_c4"] = [str(line).replace("'", "") for line in df["_c4"]]
     df["_c4"] = [str(line).replace(" ", "") for line in df["_c4"]]
-    df = df.set_index("_c0")
-    return df
+ 
+    return df.columns.tolist()
 
 
 def pregunta_12():
@@ -243,7 +243,7 @@ def pregunta_12():
     df["_c5"] = [str(line).replace("]", "") for line in df["_c5"]]
     df["_c5"] = [str(line).replace("'", "") for line in df["_c5"]]
     df["_c5"] = [str(line).replace(" ", "") for line in df["_c5"]]
-    df = df.set_index("_c0")
+ 
     return df
 
 
@@ -274,4 +274,4 @@ def pregunta_13():
     return df
 
 if __name__ == "__main__":
-    print(pregunta_12())
+    print(pregunta_11())

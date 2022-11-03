@@ -186,6 +186,7 @@ def pregunta_10():
     df["_c2"] = [str(line).replace("]", "") for line in df["_c2"]]
     df["_c2"] = [str(line).replace(",", ":") for line in df["_c2"]]
     df["_c2"] = [str(line).replace(" ", "") for line in df["_c2"]]
+    df = df.set_index("_c1")
     return df
 
 

@@ -215,7 +215,7 @@ def pregunta_11():
     df["_c4"] = [str(line).replace("'", "") for line in df["_c4"]]
     df["_c4"] = [str(line).replace(" ", "") for line in df["_c4"]]
  
-    return df.columns.tolist()
+    return df
 
 
 def pregunta_12():

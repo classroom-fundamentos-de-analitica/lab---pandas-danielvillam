@@ -65,7 +65,11 @@ def pregunta_04():
     E    4.785714
     Name: _c2, dtype: float64
     """
-    return
+    
+    df = pd.DataFrame(tbl0)
+    df=df[["_c1","_c2"]].groupby("_c1").mean()
+
+    return df.squeeze()
 
 
 def pregunta_05():
@@ -219,3 +223,5 @@ def pregunta_13():
     """
     return
 
+if __name__ == "__main__":
+    print(pregunta_04())

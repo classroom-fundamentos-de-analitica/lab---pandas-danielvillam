@@ -210,7 +210,11 @@ def pregunta_11():
     df = pd.DataFrame(tbl1)
     df = df.groupby("_c0")._c4.apply(list).reset_index()
     df["_c4"] = [sorted(line) for line in df["_c4"]]
-
+    df["_c4"] = [str(line).replace("[", "") for line in df["_c4"]]
+    df["_c4"] = [str(line).replace("]", "") for line in df["_c4"]]
+    df["_c4"] = [str(line).replace("'", "") for line in df["_c4"]]
+    df["_c4"] = [str(line).replace(" ", "") for line in df["_c4"]]
+    df = df.set_index("_c0")
     return df
 
 
@@ -229,7 +233,18 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
-    return
+    df = pd.DataFrame(tbl2)
+    df["_c5b"] = [str(line) for line in df["_c5b"]]
+    df["_c5"] = df._c5a.str.cat(df._c5b, sep=':')
+    df = df.groupby("_c0")._c5.apply(list).reset_index()
+
+    df["_c5"] = [sorted(line) for line in df["_c5"]]
+    df["_c5"] = [str(line).replace("[", "") for line in df["_c5"]]
+    df["_c5"] = [str(line).replace("]", "") for line in df["_c5"]]
+    df["_c5"] = [str(line).replace("'", "") for line in df["_c5"]]
+    df["_c5"] = [str(line).replace(" ", "") for line in df["_c5"]]
+    df = df.set_index("_c0")
+    return df
 
 
 def pregunta_13():
@@ -259,4 +274,4 @@ def pregunta_13():
     return df
 
 if __name__ == "__main__":
-    print(pregunta_10())
+    print(pregunta_12())

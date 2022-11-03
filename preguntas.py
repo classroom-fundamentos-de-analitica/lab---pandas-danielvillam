@@ -261,17 +261,10 @@ def pregunta_13():
     E    275
     Name: _c5b, dtype: int64
     """
-    df2 = pd.DataFrame(tbl2)
-    df = pd.DataFrame(tbl0)
-    df15=df[["_c1","_c2"]].groupby("_c1").sum()
-
-    df=df[["_c1"],df2["_c5b"]].groupby("_c1").sum()
-
     df1 = pd.DataFrame(tbl0)
+    df2 = pd.DataFrame(tbl2)
+    df2 = df2.groupby("_c0").sum()
+    df = pd.concat([df1["_c1"],df2["_c5b"],],axis=1,)
+    df=df.groupby("_c1").sum()
     
-    df3 = pd.concat([df1["_c1"], df2["_c5b"]],)
-    
-    return df
-
-if __name__ == "__main__":
-    print(pregunta_11())
+    return df.squeeze()
